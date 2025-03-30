@@ -9,9 +9,12 @@ def index(request):
     post, created = Text.objects.get_or_create(id=1) #создаёт первую форму если её нет в бд
 
     if request.method == 'POST':
-        form = TextForm(request.POST, instance=post) #
+        form = TextForm(request.POST, instance=post)  # Обрабатываем данные, отправленные пользователем
         if form.is_valid():
             form.save()
+    else:
+        form = TextForm(instance=post)
+
     texts = Text.objects.all()
 
     data = {
