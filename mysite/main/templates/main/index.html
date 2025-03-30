@@ -16,9 +16,7 @@
     <button type="submit">Сохранить</button>
 </form>
     <ul>
-        {% for text in texts %}
-            <li>{{ text.text }}</li>
-        {% endfor %}
+        <li>{{ texts.0.text }}</li>
     </ul>
 </body>
 </html>

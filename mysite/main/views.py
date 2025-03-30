@@ -6,16 +6,16 @@ from main.models import Text
 
 # Create your views here.
 def index(request):
-    form = TextForm()
+    post, created = Text.objects.get_or_create(id=1) #создаёт первую форму если её нет в бд
 
     if request.method == 'POST':
-        form = TextForm(request.POST)
+        form = TextForm(request.POST, instance=post) #
         if form.is_valid():
-            texts = form.save()
-
+            form.save()
     texts = Text.objects.all()
+
     data = {
-        'form' : form,
+        'form': form,
         'texts': texts,
     }
     return render(request, 'main/index.html', data)
