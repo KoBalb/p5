@@ -9,5 +9,12 @@
 </head>
 <body>
 <h1>Hello World312</h1>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="text" name="filed_text">
+    <button type="submit">Сохранить</button>
+</form>
+
 </body>
 </html>
